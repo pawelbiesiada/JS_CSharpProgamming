@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestProjectNET", "UnitT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsynchronousWPF", "AsynchronousWPF\AsynchronousWPF.csproj", "{C7CBA285-8C4B-4318-B450-902C804BAB24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstCSharpConsoleApp", "MyFirstCSharpConsoleApp\MyFirstCSharpConsoleApp.csproj", "{337B3852-8B16-4571-AFA4-B6FF30E41B21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C7CBA285-8C4B-4318-B450-902C804BAB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7CBA285-8C4B-4318-B450-902C804BAB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7CBA285-8C4B-4318-B450-902C804BAB24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{337B3852-8B16-4571-AFA4-B6FF30E41B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{337B3852-8B16-4571-AFA4-B6FF30E41B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{337B3852-8B16-4571-AFA4-B6FF30E41B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{337B3852-8B16-4571-AFA4-B6FF30E41B21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

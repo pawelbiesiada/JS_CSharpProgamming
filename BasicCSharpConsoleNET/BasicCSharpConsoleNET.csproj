@@ -2,13 +2,25 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <StartupObject>BasicCSharpConsoleNET.Program</StartupObject>
+    <StartupObject>BasicCSharpConsoleNET.Exercises.Workshop.Fibo</StartupObject>
     <TargetFramework>net9.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Exercises\Personal\" />
   </ItemGroup>
 
 </Project>
