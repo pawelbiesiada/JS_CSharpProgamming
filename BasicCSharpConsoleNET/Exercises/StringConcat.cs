@@ -13,7 +13,7 @@ namespace BasicCSharpConsoleNET.Exercises
         public void Execute()
         {
             var test = new StringConcat();
-            var loopCount = 500_000;
+            var loopCount = 80_000;
             var timer = Stopwatch.StartNew();
 
             test.ConcatUsingString(loopCount);
