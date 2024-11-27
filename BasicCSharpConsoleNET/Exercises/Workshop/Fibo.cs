@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,15 +22,19 @@ namespace BasicCSharpConsoleNET.Exercises.Workshop
 
             var number = int.Parse(arg1);
 
+
             Console.WriteLine($"Najmniejsza liczba Fibonacciego większa od {number} to: {GetNextFibo(number)}");
 
         }
+
+
 
         public static int GetNextFibo(int numberToEvaluate)
         {
             var n1 = 1;
             var n2 = 1;
 
+         
             var nextFib = 0;
 
             while (nextFib <= numberToEvaluate)

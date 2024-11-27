@@ -43,7 +43,8 @@ namespace BasicCSharpConsoleNET.Samples.Class.Inheritance
         private const int ServiceCheckAfter = 1000; //need to have lower value for SportCar
         private bool _wasUsedOnSpeedTrack;
         public SportCar() : base(200)
-        {}
+        {
+        }
 
         public SportCar(int speed) : base(speed)
         {
@@ -51,15 +52,24 @@ namespace BasicCSharpConsoleNET.Samples.Class.Inheritance
                 throw new ArgumentException($"Speed cannot be lower than 200, actual: {speed}");
         }
 
-
         public void DriveFast()
         {
             _wasUsedOnSpeedTrack = true;
+        }
+
+        public override bool IsServiceCheckNeeded()
+        {
+            return _wasUsedOnSpeedTrack || base.IsServiceCheckNeeded();
         }
     }
 
     class LuxurySportCar : SportCar
     {
+        public override bool IsServiceCheckNeeded()
+        {
+            return base.IsServiceCheckNeeded();
+        }
+
         public LuxurySportCar() : base(250)
         {
 
@@ -92,6 +102,16 @@ namespace BasicCSharpConsoleNET.Samples.Class.Inheritance
             luxury.Drive(2);
             Car car = new Car(90);
 
+
+            car = new FamilyCar(22);
+
+            luxury.DriveFast();
+            //car.DriveFast();
+            car.Drive(2);
+
+            if(car is LuxurySportCar)
+                luxury = (LuxurySportCar)car;
+
             var obj = new object();
 
             car = new FamilyCar(80);
@@ -99,6 +119,7 @@ namespace BasicCSharpConsoleNET.Samples.Class.Inheritance
 
             var fcar = new FamilyCar(80);
             fcar.LoadTrunk(3);
+            fcar.Drive(2);
 
             car = new SportCar(280);
             car = new LuxurySportCar();
@@ -106,6 +127,9 @@ namespace BasicCSharpConsoleNET.Samples.Class.Inheritance
 
 
             var sport = new SportCar();
+
+
+            sport.Drive(2);
 
             Car c1 = sport;
             SportCar sc = sport;
@@ -168,7 +192,6 @@ namespace BasicCSharpConsoleNET.Samples.Class.Inheritance
 
         public static void DriveCar(Car car)
         {
-
             car.Drive(10);
             Console.WriteLine($"new Distance {car.Distance}");
         }

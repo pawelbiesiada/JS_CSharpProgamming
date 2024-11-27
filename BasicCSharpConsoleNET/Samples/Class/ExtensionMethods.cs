@@ -11,8 +11,17 @@ namespace BasicCSharpConsoleNET.Samples.Class
                 bulldozer.DoSomeWork();
             }
         }
+
+
+
         public static string WorkHard(this Bulldozer bulldozer, int times)
         {
+            var b = new Bulldozer();
+
+
+
+
+
             while (!bulldozer.IsServiceCheckNeeded() && times > 0)
             {
                 bulldozer.DoSomeWork();
@@ -20,6 +29,13 @@ namespace BasicCSharpConsoleNET.Samples.Class
             }
 
             return "Work completed";
+        }
+
+
+        public static void DriveLong(this IVehicle v)
+        {
+
+            v.Drive(500);
         }
 
 
