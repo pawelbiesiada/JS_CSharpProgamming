@@ -11,7 +11,7 @@ namespace BasicCSharpConsoleNET.Exercises.Workshop
     {
         public void Test()
         {
-            var users = CreateCollection.GetUsers();
+            var users = CreateCollection.GetUsers().Where(u => u != null);
 
             var hasAnyElement = users.Any();
 
@@ -35,6 +35,16 @@ namespace BasicCSharpConsoleNET.Exercises.Workshop
 
             var cars = users.Select(u => new Car(u.Id));
 
+
+            var duplicatedNames = users.GroupBy(u => u.Name).Where(x => x.Count() > 1).Select(x => x.Key);
+
+            var superUsersList = CreateCollection.GetUsers().OfType<SuperUser>();
+
+            var activeAdministratorsList = CreateCollection.GetUsers().OfType<SuperUser>().Where(x => x.IsAdmin && x.IsActive);
+
+            var firstAdministratorOnTheList = CreateCollection.GetUsers().OfType<SuperUser>().FirstOrDefault(x => x.IsAdmin);
+
+            var countNamesDict = users.GroupBy(u => u.Name).ToDictionary(k => k.Key, v => v.Count());
         }
     }
 }
