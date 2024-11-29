@@ -69,7 +69,7 @@ namespace MyFirstWinFormsApp
                     cmd.CommandText = "Select * from Users";
 
 
-                    var reader  = await cmd.ExecuteReaderAsync();
+                    var reader = await cmd.ExecuteReaderAsync();
                     while (await reader.ReadAsync())
                     {
                         users.Add(new User
@@ -144,9 +144,14 @@ namespace MyFirstWinFormsApp
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             label1.Text = $"({e.X},{e.Y}) count {_counter++}";
-            
+
             //Thread.Sleep(500);
 
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

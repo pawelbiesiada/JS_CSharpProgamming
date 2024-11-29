@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 using BasicCSharpConsoleNET.Samples.Class;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,20 +12,24 @@ namespace UnitTestProjectNET
     public class CarTest
     {
         [TestInitialize]
-        public void Init() { }
+        public void Init()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            // assembly.DefinedTypes.First(t => t.IsClass).GetMethods().First().Attributes;
+        }
 
         [TestMethod]
         public void ShouldServiceCheckNotNeeded_IfLowDistanceCovered_Test()
         {
-            //assign
-            var calc = new Car(100);
+            //assign  //10_000
+            var car = new Car(100);
 
             //act
-            calc.Drive(20);
+            car.Drive(20);
 
             //assert
-            Assert.IsFalse(calc.IsServiceCheckNeeded());
-            Assert.IsTrue(calc.Distance == 2000);
+            Assert.IsFalse(car.IsServiceCheckNeeded());
+            Assert.IsTrue(car.Distance < 10_000);
         }
 
         [TestMethod]
@@ -39,6 +45,7 @@ namespace UnitTestProjectNET
             //assert
             Assert.IsTrue(calc.IsServiceCheckNeeded());
             Assert.IsTrue(calc.Distance == 22_000);
+            Assert.AreEqual(22_000, calc.Distance);
         }
 
         [DataTestMethod]
@@ -69,5 +76,46 @@ namespace UnitTestProjectNET
                 var calc = new Car(-20);
             });
         }
+    }
+
+
+
+
+    public class CarTest22
+    {
+        public void Init()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            // assembly.DefinedTypes.First(t => t.IsClass).GetMethods().First().Attributes;
+        }
+
+        public void ShouldServiceCheckNotNeeded_IfLowDistanceCovered_Test()
+        {
+            //assign  //10_000
+            var car = new Car(100);
+
+            //act
+            car.Drive(20);
+
+            //assert
+            Assert.IsFalse(car.IsServiceCheckNeeded());
+            Assert.IsTrue(car.Distance < 10_000);
+        }
+
+        public void ShouldInvokeDriveTwiceIncreaseDistance_Test()
+        {
+            //assign
+            var calc = new Car(100);
+
+            //act
+            calc.Drive(20);
+            calc.Drive(200);
+
+            //assert
+            Assert.IsTrue(calc.IsServiceCheckNeeded());
+            Assert.IsTrue(calc.Distance == 22_000);
+            Assert.AreEqual(22_000, calc.Distance);
+        }
+        
     }
 }

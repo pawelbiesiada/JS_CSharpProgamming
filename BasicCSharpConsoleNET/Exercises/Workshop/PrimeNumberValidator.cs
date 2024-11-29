@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BasicCSharpConsoleNET.Exercises.Workshop
 {
-    internal class PrimeNumberValidator
+    public class PrimeNumberValidator
     {
         public bool IsPrimeNumber(int number)
         {

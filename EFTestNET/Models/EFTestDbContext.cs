@@ -83,8 +83,8 @@ namespace EFTestNET.Models
             modelBuilder.Entity<User>(entity =>
             {
                 entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(50)
+                    .IsRequired()  //Not null
+                    .HasMaxLength(50)  //VARCHAR(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Password)

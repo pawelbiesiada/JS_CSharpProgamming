@@ -150,7 +150,7 @@
             // fileManagerToolStripMenuItem
             // 
             fileManagerToolStripMenuItem.Name = "fileManagerToolStripMenuItem";
-            fileManagerToolStripMenuItem.Size = new Size(180, 22);
+            fileManagerToolStripMenuItem.Size = new Size(142, 22);
             fileManagerToolStripMenuItem.Text = "File manager";
             fileManagerToolStripMenuItem.Click += fileManagerToolStripMenuItem_Click;
             // 
